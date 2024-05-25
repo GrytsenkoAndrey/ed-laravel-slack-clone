@@ -6,6 +6,6 @@ namespace App\Enums\Identity;
 
 enum Role: string
 {
-    public const Admin = 'admin';
-    public const Member = 'member';
+    case Admin = 'admin';
+    case Member = 'member';
 }
