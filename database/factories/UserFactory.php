@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Identity\Provider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -29,6 +30,12 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'handle' => $this->faker->userName(),
+            'avatar' => $this->faker->imageUrl(),
+            'provider' => Provider::GitHub,
+            'provider_id' => $this->faker->uuid(),
+            'onboarded' => $this->faker->boolean(),
+            'current_workspace_id' => null,
         ];
     }
 
